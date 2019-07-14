@@ -3,14 +3,12 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "node ./bin/www",
-    "server": "babel-node ./src/bin/www",
-    "dev": "NODE_ENV=development npm-run-all server",
-    "run-server": "node server/index.js"
+    "start": "nodemon --exec babel-node src/index.js"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
+    "dotenv": "^8.0.0",
     "express": "~4.16.1",
     "http-errors": "~1.6.3",
     "jade": "~1.11.0",
@@ -21,6 +19,7 @@
     "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
     "@babel/node": "^7.5.0",
-    "@babel/preset-env": "^7.5.4"
+    "@babel/preset-env": "^7.5.4",
+    "nodemon": "^1.19.1"
   }
 }
