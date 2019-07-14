@@ -1,7 +1,7 @@
 import express from 'express';
 import Joi from '@hapi/joi';
 import env from '../env';
-import { initialize } from './database/data';
+import { initialize } from './database/connection';
 import metadataHandler from './controllers/metadata';
 
 const validator = require('express-joi-validation').createValidator();

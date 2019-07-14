@@ -1,5 +1,5 @@
-import { connection } from './data';
-import router from './database';
+import { connection } from './connection';
+import router from './router';
 
 const metadataDatabase = router(connection);
 export default metadataDatabase;

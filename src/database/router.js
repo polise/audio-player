@@ -1,5 +1,3 @@
-import data from './data';
-
 export default function router(connection) {
   return {
     getMetadata: (pageNo, size) => {
@@ -7,9 +5,8 @@ export default function router(connection) {
         const skip = (pageNo - 1) * size;
 
         connection.all(
-          `SELECT id, title, writer, producer, created_at, updated_at FROM metadata WHERE id > ${skip} ORDER BY title LIMIT ${size}`,
+          `SELECT id, title, writer, producer, created_at, updated_at, file_name FROM metadata WHERE id > ${skip} ORDER BY title LIMIT ${size}`,
           (error, results) => {
-            console.log('was ist results', results);
             if (error) {
               reject(error);
             }

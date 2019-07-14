@@ -5,36 +5,36 @@
       "title": "Fantastic I",
       "writer": "Kings and Chimps",
       "producer": "Allie Folkstontin",
-      "createdAt": "2016-01-09 18:29:01",
-      "updatedAt": "2016-01-09 18:29:01",
-      "fileName": "fantastic1.wav"
+      "created_at": "2016-01-09 18:29:01",
+      "updated_at": "2016-01-09 18:29:01",
+      "file_name": "fantastic1.wav"
     },
     {
       "id": 2,
       "title": "Fantastic II",
       "writer": "Kings and Chimps",
       "producer": "Allie Folkstontin",
-      "createdAt": "2016-01-09 18:29:01",
-      "updatedAt": "2016-01-09 18:29:01",
-      "fileName": "fantastic2.wav"
+      "created_at": "2016-01-09 18:29:01",
+      "updated_at": "2016-01-09 18:29:01",
+      "file_name": "fantastic2.wav"
     },
     {
       "id": 3,
       "title": "Fantastic III",
       "writer": "Kings and Chimps",
       "producer": "Allie Folkstontin",
-      "createdAt": "2016-01-09 18:29:01",
-      "updatedAt": "2016-01-09 18:29:01",
-      "fileName": "fantastic3.wav"
+      "created_at": "2016-01-09 18:29:01",
+      "updated_at": "2016-01-09 18:29:01",
+      "file_name": "fantastic3.wav"
     },
     {
       "id": 4,
       "title": "Fantastic IV",
       "writer": "Kings and Chimps",
       "producer": "Allie Folkstontin",
-      "createdAt": "2016-01-09 18:29:01",
-      "updatedAt": "2016-01-09 18:29:01",
-      "fileName": "fantastic4.wav"
+      "created_at": "2016-01-09 18:29:01",
+      "updated_at": "2016-01-09 18:29:01",
+      "file_name": "fantastic4.wav"
     }
   ]
 }
