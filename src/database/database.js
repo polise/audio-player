@@ -1,13 +1,13 @@
 import data from './data';
 
 export default function router(connection) {
-  console.log('hello i am in router ');
   return {
-    getMetadata: () => {
-      console.log('i am in here getMetadata()');
+    getMetadata: (pageNo, size) => {
       return new Promise((resolve, reject) => {
+        const skip = (pageNo - 1) * size;
+
         connection.all(
-          'SELECT title, writer, producer, created_at, updated_at FROM metadata ORDER BY title',
+          `SELECT id, title, writer, producer, created_at, updated_at FROM metadata WHERE id > ${skip} ORDER BY title LIMIT ${size}`,
           (error, results) => {
             console.log('was ist results', results);
             if (error) {

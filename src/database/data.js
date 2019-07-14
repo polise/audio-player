@@ -9,13 +9,14 @@ export function initialize() {
   connection.serialize(() => {
     connection.run('DROP TABLE IF EXISTS metadata');
     connection.run(
-      'CREATE TABLE metadata (title TEXT, writer TEXT, producer TEXT, created_at DATE, updated_at DATE)',
+      'CREATE TABLE metadata (id INT, title TEXT, writer TEXT, producer TEXT, created_at DATE, updated_at DATE)',
     );
     var { metadata } = sampleMetadata;
     metadata.forEach(data => {
       connection.run(
-        'INSERT INTO metadata (title, writer, producer, created_at, updated_at) VALUES (?, ?, ?, ?, ?)',
+        'INSERT INTO metadata (id, title, writer, producer, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?)',
         [
+          data.id,
           data.title,
           data.writer,
           data.producer,
