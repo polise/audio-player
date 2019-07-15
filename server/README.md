@@ -42,6 +42,8 @@ I put some very short media files into the repo so that you can test my code str
 
 I think I did a good job of writing fairly clean code and am happy with the level of parameter validation and error handling that I put in given the time constraint and context.
 
+I put all of the work in `/server` preemptively. I figured for this exercise, the frontend application could sit in an `/app` directory in the same repository.
+
 Were I to have more time, I would focus on improving the `/play` endpoint in the following ways:
 
 1. When the song plays, an error shows up (`warning: Didn't have any audio data in callback (buffer underflow)`). I didn't have a lot of time to look into this today, but would not allow that to go into production code.
