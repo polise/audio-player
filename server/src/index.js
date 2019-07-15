@@ -1,15 +1,24 @@
 import express from 'express';
 import Joi from '@hapi/joi';
+import cors from 'cors';
 import env from '../env';
 import { initialize } from './database/connection';
 import metadataHandler from './controllers/metadata';
+import playSongHandler from './controllers/playSong';
 
 const validator = require('express-joi-validation').createValidator();
 
+var corsOptions = {
+  origin: env.appUrl,
+  optionsSuccessStatus: 200,
+};
+
 const app = express();
+
+// initialize db with test data
 initialize();
 
-const querySchema = Joi.object({
+const metadataQuerySchema = Joi.object({
   pageNo: Joi.number()
     .min(1)
     .required(),
@@ -18,10 +27,22 @@ const querySchema = Joi.object({
     .required(),
 });
 
-app.use('/media', express.static(__dirname + '/media'));
+const playSongQuerySchema = Joi.object({
+  id: Joi.number().required(),
+});
+
 app.get('/', (req, res) => res.send('Hello world'));
 app.get('/health', (req, res) => res.send('OK'));
-app.get('/metadata', validator.query(querySchema), metadataHandler);
+app.get(
+  '/metadata',
+  [validator.query(metadataQuerySchema), cors(corsOptions)],
+  metadataHandler,
+);
+app.get(
+  '/play/:id',
+  [validator.params(playSongQuerySchema), cors(corsOptions)],
+  playSongHandler,
+);
 
 app.listen(env.port, () => {
   console.log(`App listening on port ${env.port}`);

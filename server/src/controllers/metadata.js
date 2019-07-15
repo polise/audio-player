@@ -8,6 +8,7 @@ export default async function handler(req, res) {
 
     return res.send(metadata);
   } catch (error) {
-    res.status(500).send('Something happened');
+    res.status(500);
+    return res.send('Could not fetch metadata');
   }
 }

@@ -32,3 +32,15 @@ describe('getMetadata()', () => {
     expect(result).toEqual([]);
   });
 });
+describe('getById', () => {
+  it('should get item by id', async () => {
+    const result = await metadataDatabase.getById(3);
+
+    expect(result).toEqual([metadata.metadata[2]]);
+  });
+  it('should return nothing if no entry exists with id', async () => {
+    const result = await metadataDatabase.getById(75);
+
+    expect(result).toEqual([]);
+  });
+});
