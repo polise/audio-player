@@ -1,7 +1,5 @@
 # Audio-player backend
 
-Hi! Thanks for taking the time to look over my application :)
-
 This api allows you to fetch metadata and play some audio files.
 
 I wrote it in express and used sqlite to store/access the metadata.
@@ -41,8 +39,6 @@ I am unfamiliar with express (my company uses koa), and so it took me a while to
 I put some very short media files into the repo so that you can test my code straightaway, but I wouldn't otherwise commit audio files.
 
 I think I did a good job of writing fairly clean code and am happy with the level of parameter validation and error handling that I put in given the time constraint and context.
-
-I put all of the work in `/server` preemptively. I figured for this exercise, the frontend application could sit in an `/app` directory in the same repository.
 
 Were I to have more time, I would focus on improving the `/play` endpoint in the following ways:
 
