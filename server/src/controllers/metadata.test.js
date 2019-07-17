@@ -3,11 +3,11 @@ import handler from './metadata';
 import metadataDatabase from '../database';
 
 describe('metadata handler', () => {
-  let responseSpy;
+  let responseStubs;
   beforeEach(() => {
-    responseSpy = {
-      send: sinon.spy(),
-      status: sinon.spy(),
+    responseStubs = {
+      send: sinon.stub(),
+      status: sinon.stub(),
     };
   });
 
@@ -24,8 +24,8 @@ describe('metadata handler', () => {
 
     sinon.stub(metadataDatabase, 'getMetadata').resolves(expectedResult);
 
-    await handler(mockRequest, responseSpy);
-    expect(responseSpy.send.calledOnceWith(expectedResult)).toEqual(true);
+    await handler(mockRequest, responseStubs);
+    expect(responseStubs.send.calledOnceWith(expectedResult)).toEqual(true);
   });
 
   it('should return a 500 if the db fails to fetch', async () => {
@@ -37,11 +37,11 @@ describe('metadata handler', () => {
     };
     sinon.stub(metadataDatabase, 'getMetadata').rejects(new Error('shucks'));
 
-    await handler(mockRequest, responseSpy);
+    await handler(mockRequest, responseStubs);
 
-    expect(responseSpy.status.calledOnceWith(500)).toEqual(true);
-    expect(responseSpy.send.calledOnceWith('Could not fetch metadata')).toEqual(
-      true,
-    );
+    expect(responseStubs.status.calledOnceWith(500)).toEqual(true);
+    expect(
+      responseStubs.send.calledOnceWith('Could not fetch metadata'),
+    ).toEqual(true);
   });
 });
