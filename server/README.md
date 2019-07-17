@@ -42,4 +42,4 @@ I think I did a good job of writing fairly clean code and am happy with the leve
 
 Were I to have more time, I would focus on refactoring the database code. I think some of the organisation of that directory is a bit off and would ideally intialise the entries in these tables via a database patch, not on starting up the application.
 
-Additionally, were I to have more time, I would add some typing - I am used to Typescript and don't know whether Flow is the go-to still (or ever was for backend code).
+Additionally, were I to have more time, I would add some typing - I am used to Typescript and don't know whether Flow is the go-to still (or ever was for backend code), but I quite like defining types and ensuring that expectations for parameters and return values of functions is clear. 
