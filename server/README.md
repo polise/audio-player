@@ -26,11 +26,11 @@ Gets metadata for songs. The endpoint is paginated and pageNo and size are requi
 
 GET `/metadata?pageNo=1&size=1` would return just the very first entry.
 
-### GET /play/:id
+### GET /download/:id
 
-Plays a song with a given id.
+Downloads a song with a given id.
 
-GET `/play/6` would play the song with id 6
+GET `/play/6` would download the song with id 6
 
 ## Notes
 
@@ -40,12 +40,6 @@ I put some very short media files into the repo so that you can test my code str
 
 I think I did a good job of writing fairly clean code and am happy with the level of parameter validation and error handling that I put in given the time constraint and context.
 
-Were I to have more time, I would focus on improving the `/play` endpoint in the following ways:
+Were I to have more time, I would focus on refactoring the database code. I think some of the organisation of that directory is a bit off and would ideally intialise the entries in these tables via a database patch, not on starting up the application.
 
-1. When the song plays, an error shows up (`warning: Didn't have any audio data in callback (buffer underflow)`). I didn't have a lot of time to look into this today, but would not allow that to go into production code.
-
-2. It would be nice to fetch the audio files from a database rather than keeping them locally.
-
-3. I would like to do more checks to provide better error responses for this endpoint. For instance, it'd be nice to check whether a song exists in `/media` before trying to play it.
-
-4. I could not get sinon to stub `play()` and `load()`. I am familiar with stubbing external default exports in sinon but still could not manage to get the function to use the stub that I declared instead of the dependency. I had to comment out some unit tests which fail because of this, which is frustrating.
+Additionally, were I to have more time, I would add some typing - I am used to Typescript and don't know whether Flow is the go-to still (or ever was for backend code).
